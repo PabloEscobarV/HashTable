@@ -6,12 +6,11 @@
 /*   By: Pablo Escobar <sataniv.rider@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 17:50:01 by Pablo Escob       #+#    #+#             */
-/*   Updated: 2024/08/18 18:42:51 by Pablo Escob      ###   ########.fr       */
+/*   Updated: 2024/08/31 19:06:43 by Pablo Escob      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../hdrs/commondata.h"
-#include "../../../libft/libft.h"
+#include "../NearestPrime/libft/libft.h"
 #include <stdint.h>
 #include <stdlib.h>
 #include <stdio.h>

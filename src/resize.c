@@ -1,32 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   gethashval.c                                       :+:      :+:    :+:   */
+/*   resize.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Pablo Escobar <sataniv.rider@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/18 18:42:43 by Pablo Escob       #+#    #+#             */
-/*   Updated: 2024/08/31 20:57:05 by Pablo Escob      ###   ########.fr       */
+/*   Created: 2024/08/31 20:13:06 by Pablo Escob       #+#    #+#             */
+/*   Updated: 2024/08/31 21:19:31 by Pablo Escob      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../hdrs/hashtable.h"
 #include "../NearestPrime/libft/libft.h"
-#include "../NearestPrime/hdrs/getnearprime.h"
-#include <stdint.h>
+#include "../hdrs/hashtable.h"
 #include <stdlib.h>
 
-int	gethash(f_hash fhash, const char *key, int tabsize)
+int	resizehashtable(t_hashtable *hashtable, int xsize)
 {
-	if (!key || !(*key))
-		return (E_KO);
-	return (fhash(key, ft_strlen(key), HASHSEED) % tabsize);
-}
+	int			i;
+	int			tmpsize;
+	t_hashnode	**tmp;
 
-int	getstephash(t_ulong hash, int tabsize)
-{
-	t_ulong	prime;
-
-	prime = getnearestprime(tabsize);
-	return (prime - (hash % prime));
+	tmp = hashtable->table;
+	tmpsize = hashtable->tabsize;
+	hashtable->tabsize *= xsize;
+	hashtable->table = crttable(hashtable->tabsize);
+	i = 0;
+	while (i < tmpsize)
+	{
+		if (tmp[i] && tmp[i]->state)
+		addnode(hashtable, tmp[i]->key, tmp[i]->data);
+		++i;
+	}
+	freetable(tmp, tmpsize);
+	return (E_OK);
 }

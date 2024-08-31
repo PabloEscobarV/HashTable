@@ -1,32 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   gethashval.c                                       :+:      :+:    :+:   */
+/*   rehash.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Pablo Escobar <sataniv.rider@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/18 18:42:43 by Pablo Escob       #+#    #+#             */
-/*   Updated: 2024/08/31 20:57:05 by Pablo Escob      ###   ########.fr       */
+/*   Created: 2024/08/31 21:17:52 by Pablo Escob       #+#    #+#             */
+/*   Updated: 2024/08/31 21:19:43 by Pablo Escob      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../hdrs/hashtable.h"
 #include "../NearestPrime/libft/libft.h"
-#include "../NearestPrime/hdrs/getnearprime.h"
-#include <stdint.h>
+#include "../hdrs/hashtable.h"
 #include <stdlib.h>
 
-int	gethash(f_hash fhash, const char *key, int tabsize)
+int	rehash(t_hashtable *hashtable)
 {
-	if (!key || !(*key))
-		return (E_KO);
-	return (fhash(key, ft_strlen(key), HASHSEED) % tabsize);
-}
-
-int	getstephash(t_ulong hash, int tabsize)
-{
-	t_ulong	prime;
-
-	prime = getnearestprime(tabsize);
-	return (prime - (hash % prime));
+	return (resizehashtable(hashtable, 1));
 }
