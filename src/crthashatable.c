@@ -46,12 +46,12 @@ t_hashtable	*crthashtable(int size)
 	hashtable->tabsize = size;
 	hashtable->datacount = 0;
 	hashtable->nodecount = 0;
-	hashtable->fhash = NULL;
-	hashtable->add = NULL;
-	hashtable->find = NULL;
-	hashtable->remove = NULL;
-	hashtable->rehash = NULL;
-	hashtable->resize = NULL;
+	hashtable->fhash = murmur3_32;
+	hashtable->add = addnode;
+	hashtable->find = findnode;
+	hashtable->remove = removenode;
+	hashtable->rehash = rehash;
+	hashtable->resize = resizehashtable;
 	return (hashtable);
 }
 
