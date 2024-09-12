@@ -6,7 +6,7 @@
 /*   By: Pablo Escobar <sataniv.rider@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 18:26:02 by Pablo Escob       #+#    #+#             */
-/*   Updated: 2024/08/31 21:13:11 by Pablo Escob      ###   ########.fr       */
+/*   Updated: 2024/09/12 09:13:50 by Pablo Escob      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,12 @@ t_hashtable	*crthashtable(int size)
 	hashtable->tabsize = size;
 	hashtable->datacount = 0;
 	hashtable->nodecount = 0;
-	hashtable->fhash = NULL;
-	hashtable->add = NULL;
-	hashtable->find = NULL;
-	hashtable->remove = NULL;
-	hashtable->rehash = NULL;
-	hashtable->resize = NULL;
+	hashtable->fhash = murmur3_32;
+	hashtable->add = addnode;
+	hashtable->find = findnode;
+	hashtable->remove = removenode;
+	hashtable->rehash = rehash;
+	hashtable->resize = resizehashtable;
 	return (hashtable);
 }
 
@@ -76,9 +76,12 @@ void	freetable(t_hashnode **table, int size)
 	while (size)
 	{
 		--size;
-		free(table[size]->data);
-		free(table[size]->key);
-		free(table[size]);
+		if (table[size])
+		{
+			free((void *)(table[size]->data));
+			free((void *)(table[size]->key));
+			free(table[size]);
+		}
 	}
 	free(table);
 }

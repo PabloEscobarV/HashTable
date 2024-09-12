@@ -6,7 +6,7 @@
 /*   By: Pablo Escobar <sataniv.rider@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 18:35:44 by Pablo Escob       #+#    #+#             */
-/*   Updated: 2024/08/31 21:23:05 by Pablo Escob      ###   ########.fr       */
+/*   Updated: 2024/09/12 09:16:50 by Pablo Escob      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ void	checkhashtable(t_hashtable *hashtable)
 {
 	if (hashtable->tabsize <= hashtable->nodecount + 1)
 		hashtable->resize(hashtable, C_RESIZE);
-	if (hashtable->nodecount >= hashtable->datacount * C_RESIZE)
+	if (hashtable->datacount
+		&& hashtable->nodecount >= hashtable->datacount * C_RESIZE)
 		hashtable->rehash(hashtable);
 }
 
@@ -53,10 +54,13 @@ int	addnode(t_hashtable *hashtable, const char *key, const char *data)
 	step = getstephash(hash, hashtable->tabsize);
 	place = findplace(hashtable, hash, step);
 	if (!hashtable->table[place])
-		hashtable->table[place] = crthashnodet(NULL, NULL);
-	hashtable->table[place]->key = key;
-	hashtable->table[place]->data = data;
-	hashtable->table[place]->state = e_true;
+		hashtable->table[place] = crthashnodet(key, data);
+	else
+	{
+		hashtable->table[place]->key = (t_cchar *)ft_strdup(key);
+		hashtable->table[place]->data = (t_cchar *)ft_strdup(data);
+		hashtable->table[place]->state = e_true;
+	}
 	++hashtable->datacount;
 	++hashtable->nodecount;
 	return (E_OK);

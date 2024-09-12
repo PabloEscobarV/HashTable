@@ -6,7 +6,7 @@
 /*   By: Pablo Escobar <sataniv.rider@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 17:50:01 by Pablo Escob       #+#    #+#             */
-/*   Updated: 2024/08/31 19:06:43 by Pablo Escob      ###   ########.fr       */
+/*   Updated: 2024/09/12 08:48:05 by Pablo Escob      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,10 +82,10 @@ uint32_t	murmur3_32(const char *str, int len, uint32_t hash)
 	return (setfinalhash(hash, len));
 }
 
-int	main()
-{
-	const char str[] = "Ing. Pavlo Olenych";
+// int	main()
+// {
+// 	const char str[] = "Ing. Pavlo Olenych";
 
-	printf("Result of hash function:\t%ld\n", murmur3_32(str, sizeof(str), 0) % 101);
-	return (0);
-}
+// 	printf("Result of hash function:\t%ld\n", murmur3_32(str, sizeof(str), 0) % 101);
+// 	return (0);
+// }

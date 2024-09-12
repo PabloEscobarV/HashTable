@@ -6,7 +6,7 @@
 /*   By: Pablo Escobar <sataniv.rider@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/31 20:13:06 by Pablo Escob       #+#    #+#             */
-/*   Updated: 2024/08/31 21:19:31 by Pablo Escob      ###   ########.fr       */
+/*   Updated: 2024/09/12 09:17:37 by Pablo Escob      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	resizehashtable(t_hashtable *hashtable, int xsize)
 	while (i < tmpsize)
 	{
 		if (tmp[i] && tmp[i]->state)
-		addnode(hashtable, tmp[i]->key, tmp[i]->data);
+			addnode(hashtable, tmp[i]->key, tmp[i]->data);
 		++i;
 	}
 	freetable(tmp, tmpsize);
