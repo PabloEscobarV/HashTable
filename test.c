@@ -6,20 +6,23 @@
 /*   By: Pablo Escobar <sataniv.rider@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 17:03:26 by Pablo Escob       #+#    #+#             */
-/*   Updated: 2024/09/12 09:21:22 by Pablo Escob      ###   ########.fr       */
+/*   Updated: 2024/09/14 15:34:57 by Pablo Escob      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "hdrs/hashtable.h"
-#include "stdio.h"
+#include <stdlib.h>
+#include <stdio.h>
 
 char  **crtstrs(int size, t_cchar *startkey)
 {
 	int    i;
 	int    strsize;
 	char  **keys;
+	char	*tmp;
 
 	keys = malloc((size + 1) * sizeof(char *));
+	keys[size] = NULL;
 	i = 0;
 	while (i < size)
 	{
@@ -29,22 +32,51 @@ char  **crtstrs(int size, t_cchar *startkey)
 	return (keys);
 }
 
+void	printm(const char **mat)
+{
+	while (*mat)
+	{
+		printf("%s\n", *mat);
+		++mat;
+	}
+}
+
 int main()
 {
-	int      size;
-	int      count;
-	char    **keys;
-	char    **data;
-	t_hashtable  *hashtable;
+	int			size;
+	int			count;
+	char		**keys;
+	char		**data;
+	t_hashtable	*hashtable;
 
 	size = 1;
-	count = 5;
+	count = 10;
+	hashtable = crthashtable(size);
 	keys = crtstrs(count, "KEY: ");
 	data = crtstrs(count, "DATA: ");
-	hashtable = crthashtable(size);
 	for (int i = 0; i < count; ++i)
-		hashtable->add(hashtable, keys[i], data[i]);
+		hashtable->add(hashtable, (t_cchar *)keys[i], (t_cchar *)data[i]);
 	for (int i = 0; i < count; ++i)
-		printf("NODE[%d]:\t%s\n", i, hashtable->table[hashtable->find(hashtable, keys[i])]);
+	{
+		size = hashtable->find(hashtable, keys[i]);
+		printf("NODE[%d]:\tKEY: %s\tDATA: %s\n",
+			i, hashtable->table[size]->key, hashtable->table[size]->data);
+	}
+	for (int i = 0; i < count; ++i)
+		if (i && !(i % 2))
+			hashtable->remove(hashtable, keys[i]);
+	printf("---------------------\n");
+	for (int i = 0; i < count; ++i)
+	{
+		size = hashtable->find(hashtable, keys[i]);
+		if (size < hashtable->tabsize)
+			printf("NODE[%d]:\tKEY: %s\tDATA: %s\n",
+				i, hashtable->table[size]->key, hashtable->table[size]->data);
+	}
 	return (0);
 }
+
+	// printf("KEYS:\n");
+	// printm((t_cchar **)keys);
+	// printf("DATA:\n");
+	// printm((t_cchar **)data);

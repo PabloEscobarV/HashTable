@@ -6,7 +6,7 @@
 /*   By: Pablo Escobar <sataniv.rider@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 18:26:02 by Pablo Escob       #+#    #+#             */
-/*   Updated: 2024/09/12 09:13:50 by Pablo Escob      ###   ########.fr       */
+/*   Updated: 2024/09/14 15:03:07 by Pablo Escob      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ t_hashtable	*crthashtable(int size)
 {
 	t_hashtable	*hashtable;
 
-	hashtable = malloc(sizeof(t_hashnode));
+	hashtable = malloc(sizeof(t_hashtable));
 	if (!hashtable)
 	{
 		ft_perror(HT_MALLOCERROR);

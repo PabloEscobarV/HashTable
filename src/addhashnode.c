@@ -6,13 +6,14 @@
 /*   By: Pablo Escobar <sataniv.rider@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 18:35:44 by Pablo Escob       #+#    #+#             */
-/*   Updated: 2024/09/12 09:16:50 by Pablo Escob      ###   ########.fr       */
+/*   Updated: 2024/09/14 15:05:02 by Pablo Escob      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../NearestPrime/libft/libft.h"
 #include "../hdrs/hashtable.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 void	checkhashtable(t_hashtable *hashtable)
 {
@@ -33,7 +34,7 @@ int	findplace(t_hashtable *hashtable, int hash, int step)
 	while (hashtable->table[i] && hashtable->table[i]->state && atmp)
 	{
 		--atmp;
-		i = (hash + i * step) % hashtable->tabsize;
+		i = (hash + atmp * step) % hashtable->tabsize;
 	}
 	if (!hashtable->table[i])
 		return (i);
@@ -53,6 +54,7 @@ int	addnode(t_hashtable *hashtable, const char *key, const char *data)
 	hash = gethash(hashtable->fhash, key, hashtable->tabsize);
 	step = getstephash(hash, hashtable->tabsize);
 	place = findplace(hashtable, hash, step);
+	printf("Add KEY: %s with data: %s in %d node\n", key, data, place);
 	if (!hashtable->table[place])
 		hashtable->table[place] = crthashnodet(key, data);
 	else
