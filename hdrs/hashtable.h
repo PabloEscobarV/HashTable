@@ -6,12 +6,13 @@
 /*   By: Pablo Escobar <sataniv.rider@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 17:45:05 by Pablo Escob       #+#    #+#             */
-/*   Updated: 2024/08/31 21:22:57 by Pablo Escob      ###   ########.fr       */
+/*   Updated: 2024/09/12 08:58:18 by Pablo Escob      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
+#include "../NearestPrime/libft/libft.h"
 #include <stdint.h>
 #include <stdlib.h>
 
@@ -21,13 +22,14 @@
 
 typedef const char			t_cchar;
 typedef struct s_hashnode	t_hashnode;
+typedef struct s_hashtable	t_hashtable;
 
-typedef	uint32_t	(* f_hash)(const char *key, int tabsize, int seed);
-typedef int			(* f_addnode)(t_hashnode *, t_cchar *key, t_cchar *data);
-typedef int			(* f_findnode)(t_hashnode *, t_cchar *key);
-typedef int			(* f_removenode)(t_hashnode *, t_cchar *key);
-typedef	int			(* f_resizehashtab)(t_hashnode *, int xsize);
-typedef	int			(* f_rehash)(t_hashnode *);
+typedef	uint32_t	(* f_hash)(const char *key, int tabsize, uint32_t seed);
+typedef int			(* f_addnode)(t_hashtable *, t_cchar *key, t_cchar *data);
+typedef int			(* f_findnode)(t_hashtable *, t_cchar *key);
+typedef int			(* f_removenode)(t_hashtable *, t_cchar *key);
+typedef	int			(* f_resizehashtab)(t_hashtable *, int xsize);
+typedef	int			(* f_rehash)(t_hashtable *);
 
 enum	e_hashnodestate
 {
@@ -45,12 +47,12 @@ enum	e_errorcodes
 
 struct s_hashnode
 {
-    char    *key;
-    char    *data;
-    char    state;
+    const char		*key;
+    const char		*data;
+    char  			state;
 };
 
-typedef struct	s_hashtable
+struct	s_hashtable
 {
 	int				tabsize;
 	int				nodecount;
@@ -62,10 +64,10 @@ typedef struct	s_hashtable
 	f_removenode	remove;
 	f_resizehashtab	resize;
 	f_rehash		rehash;
-}				t_hashtable;
+};
 
 /////////////////////////////////HASHTABLE METHODS\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\/
-t_hashnode	*findnode(t_hashtable *hashtable, const char *key);
+int			findnode(t_hashtable *hashtable, const char *key);
 int			removenode(t_hashtable *hashtable, const char *key);
 int			addnode(t_hashtable *hashtable, const char *key, const char *data);
 int			resizehashtable(t_hashtable *hashtable, int xsize);
@@ -80,6 +82,6 @@ t_hashtable	*crtnewhashtable(t_hashtable *table, int xsize);
 void		freetable(t_hashnode **table, int size);
 void		freehashtablet(t_hashtable *hashtable);
 /////////////////////////////////HASHNODE\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\/
-t_hashnode	*crthashnodet(char *key, char *data);
+t_hashnode	*crthashnodet(const char *key, const char *data);
 void		freehashnodet(t_hashnode *node);
 void		*delhashnodet(t_hashnode *node);
