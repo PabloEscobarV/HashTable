@@ -75,8 +75,3 @@ int main()
 	}
 	return (0);
 }
-
-	// printf("KEYS:\n");
-	// printm((t_cchar **)keys);
-	// printf("DATA:\n");
-	// printm((t_cchar **)data);
