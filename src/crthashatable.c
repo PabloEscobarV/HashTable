@@ -6,7 +6,7 @@
 /*   By: Pablo Escobar <sataniv.rider@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 18:26:02 by Pablo Escob       #+#    #+#             */
-/*   Updated: 2024/09/14 15:03:07 by Pablo Escob      ###   ########.fr       */
+/*   Updated: 2024/09/15 02:32:50 by Pablo Escob      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ t_hashnode	**crttable(int size)
 	while (size)
 	{
 		--size;
-		table[size] = NULL;	
+		table[size] = NULL;
 	}
 	return (table);
 }

@@ -6,7 +6,7 @@
 /*   By: Pablo Escobar <sataniv.rider@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/31 19:48:20 by Pablo Escob       #+#    #+#             */
-/*   Updated: 2024/09/14 15:34:34 by Pablo Escob      ###   ########.fr       */
+/*   Updated: 2024/09/15 02:36:04 by Pablo Escob      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	findnode(t_hashtable *hashtable, const char *key)
 		--atmp;
 		if (hashtable->table[i] && hashtable->table[i]->state
 			&& !ft_strcmp(key, hashtable->table[i]->key))
-				return (i);
+			return (i);
 		i = (hash + atmp * step) % hashtable->tabsize;
 	}
 	return (hashtable->tabsize);

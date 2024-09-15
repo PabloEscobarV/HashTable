@@ -6,7 +6,7 @@
 /*   By: Pablo Escobar <sataniv.rider@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 17:03:26 by Pablo Escob       #+#    #+#             */
-/*   Updated: 2024/09/14 15:34:57 by Pablo Escob      ###   ########.fr       */
+/*   Updated: 2024/09/15 02:43:54 by Pablo Escob      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char  **crtstrs(int size, t_cchar *startkey)
 	i = 0;
 	while (i < size)
 	{
-		keys[i] = ft_strjoinfree((char *)startkey, ft_itoa(i), 1);
+		keys[i] = ft_strjoinfree((char *)startkey, ft_itoa(i * i), 1);
 		++i;
 	}
 	return (keys);
@@ -50,10 +50,11 @@ int main()
 	t_hashtable	*hashtable;
 
 	size = 1;
-	count = 10;
+	count = 100;
 	hashtable = crthashtable(size);
-	keys = crtstrs(count, "KEY: ");
+	keys = crtstrs(count, "KEY FOR HASHTABL: ");
 	data = crtstrs(count, "DATA: ");
+	// printm((t_cchar **)keys);
 	for (int i = 0; i < count; ++i)
 		hashtable->add(hashtable, (t_cchar *)keys[i], (t_cchar *)data[i]);
 	for (int i = 0; i < count; ++i)
@@ -73,5 +74,8 @@ int main()
 			printf("NODE[%d]:\tKEY: %s\tDATA: %s\n",
 				i, hashtable->table[size]->key, hashtable->table[size]->data);
 	}
+	ft_free_d((void **)keys);
+	ft_free_d((void **)data);
+	freehashtablet(hashtable);
 	return (0);
 }

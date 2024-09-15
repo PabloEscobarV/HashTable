@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rehash.c                                           :+:      :+:    :+:   */
+/*   hashfuncconst.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Pablo Escobar <sataniv.rider@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/31 21:17:52 by Pablo Escob       #+#    #+#             */
-/*   Updated: 2024/09/15 02:46:22 by Pablo Escob      ###   ########.fr       */
+/*   Created: 2024/09/15 01:56:40 by Pablo Escob       #+#    #+#             */
+/*   Updated: 2024/09/15 02:47:17 by Pablo Escob      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../NearestPrime/libft/libft.h"
-#include "../hdrs/hashtable.h"
-#include <stdlib.h>
-#include <stdio.h>
+#pragma once
 
-int	rehash(t_hashtable *hashtable)
-{
-	return (resizehashtable(hashtable, 1));
-}
+#define MURMURSIZE	32
+#define C_1			0xcc9e2d51
+#define C_2			0x1b873593
+#define R_BYTES		15
+#define R_HASHFINAL	16	
+#define R_HASH		13
+#define M			5
+#define N			0xe6546b64
+#define CEND_1		0x85ebca6b
+#define	CEND_2		0xc2b2ae35
+#define HT_C_NBITS  8

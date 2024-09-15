@@ -6,7 +6,7 @@
 /*   By: Pablo Escobar <sataniv.rider@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 17:45:05 by Pablo Escob       #+#    #+#             */
-/*   Updated: 2024/09/12 08:58:18 by Pablo Escob      ###   ########.fr       */
+/*   Updated: 2024/09/15 02:49:03 by Pablo Escob      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ typedef const char			t_cchar;
 typedef struct s_hashnode	t_hashnode;
 typedef struct s_hashtable	t_hashtable;
 
-typedef	uint32_t	(* f_hash)(const char *key, int tabsize, uint32_t seed);
-typedef int			(* f_addnode)(t_hashtable *, t_cchar *key, t_cchar *data);
-typedef int			(* f_findnode)(t_hashtable *, t_cchar *key);
-typedef int			(* f_removenode)(t_hashtable *, t_cchar *key);
-typedef	int			(* f_resizehashtab)(t_hashtable *, int xsize);
-typedef	int			(* f_rehash)(t_hashtable *);
+typedef			uint32_t (* f_hash)(const char *key, int tabsize, uint32_t seed);
+typedef			int (* f_addnode)(t_hashtable *, t_cchar *key, t_cchar *data);
+typedef			int (* f_findnode)(t_hashtable *, t_cchar *key);
+typedef			int (* f_removenode)(t_hashtable *, t_cchar *key);
+typedef			int	(* f_resizehashtab)(t_hashtable *, int xsize);
+typedef			int	(* f_rehash)(t_hashtable *);
 
 enum	e_hashnodestate
 {

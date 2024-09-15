@@ -6,7 +6,7 @@
 /*   By: Pablo Escobar <sataniv.rider@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 18:35:44 by Pablo Escob       #+#    #+#             */
-/*   Updated: 2024/09/14 15:05:02 by Pablo Escob      ###   ########.fr       */
+/*   Updated: 2024/09/15 02:35:45 by Pablo Escob      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	findplace(t_hashtable *hashtable, int hash, int step)
 	if (!hashtable->table[i])
 		return (i);
 	if (hashtable->table[i] && !hashtable->table[i]->state)
-	 	return (i);
+		return (i);
 	hashtable->resize(hashtable, C_RESIZE);
 	return (findplace(hashtable, hash, step));
 }
