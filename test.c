@@ -6,7 +6,7 @@
 /*   By: Pablo Escobar <sataniv.rider@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 17:03:26 by Pablo Escob       #+#    #+#             */
-/*   Updated: 2024/09/15 02:43:54 by Pablo Escob      ###   ########.fr       */
+/*   Updated: 2024/09/21 01:46:56 by Pablo Escob      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@
 char  **crtstrs(int size, t_cchar *startkey)
 {
 	int    i;
-	int    strsize;
 	char  **keys;
-	char	*tmp;
 
 	keys = malloc((size + 1) * sizeof(char *));
 	keys[size] = NULL;
