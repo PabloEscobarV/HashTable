@@ -6,7 +6,7 @@
 /*   By: Pablo Escobar <sataniv.rider@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 18:42:43 by Pablo Escob       #+#    #+#             */
-/*   Updated: 2024/08/31 20:57:05 by Pablo Escob      ###   ########.fr       */
+/*   Updated: 2024/09/21 14:45:29 by Pablo Escob      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <stdint.h>
 #include <stdlib.h>
 
-int	gethash(f_hash fhash, const char *key, int tabsize)
+int	gethash(t_fhash fhash, const char *key, int tabsize)
 {
 	if (!key || !(*key))
 		return (E_KO);
