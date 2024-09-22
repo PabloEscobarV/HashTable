@@ -6,14 +6,13 @@
 /*   By: Pablo Escobar <sataniv.rider@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 17:50:01 by Pablo Escob       #+#    #+#             */
-/*   Updated: 2024/09/15 02:46:11 by Pablo Escob      ###   ########.fr       */
+/*   Updated: 2024/09/22 14:00:03 by Pablo Escob      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../NearestPrime/libft/libft.h"
 #include <stdint.h>
 #include <stdlib.h>
-#include <stdio.h>
 #include "../hdrs/hashfuncconst.h"
 
 static uint32_t	getuint_32t(const uint8_t *blocks)
@@ -106,7 +105,7 @@ uint32_t	murmur3_32(const char *str, int len, uint32_t hash)
 	// 	case (2):
 	// 		data ^= blocks[1] << MURMURSIZE / 4;
 	// 	case (0):
-	// 		data ^= blocks[0];
+	// 		data ^= blocks[0];#include <stdio.h>
 	// 		data *= C_1;
 	// 		data = (data << R_BYTES) | (data >> (MURMURSIZE - R_BYTES));
 	// 		data *= C_2;

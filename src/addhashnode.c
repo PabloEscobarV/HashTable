@@ -6,7 +6,7 @@
 /*   By: Pablo Escobar <sataniv.rider@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 18:35:44 by Pablo Escob       #+#    #+#             */
-/*   Updated: 2024/09/15 02:35:45 by Pablo Escob      ###   ########.fr       */
+/*   Updated: 2024/09/22 13:59:32 by Pablo Escob      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ int	addnode(t_hashtable *hashtable, const char *key, const char *data)
 	hash = gethash(hashtable->fhash, key, hashtable->tabsize);
 	step = getstephash(hash, hashtable->tabsize);
 	place = findplace(hashtable, hash, step);
-	printf("Add KEY: %s with data: %s in %d node\n", key, data, place);
 	if (!hashtable->table[place])
 		hashtable->table[place] = crthashnodet(key, data);
 	else
