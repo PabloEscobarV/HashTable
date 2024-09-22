@@ -6,7 +6,7 @@
 /*   By: Pablo Escobar <sataniv.rider@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 17:45:05 by Pablo Escob       #+#    #+#             */
-/*   Updated: 2024/09/22 13:39:21 by Pablo Escob      ###   ########.fr       */
+/*   Updated: 2024/09/22 15:01:48 by Pablo Escob      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ enum	e_hashnodestate
 	e_true,
 };
 
-enum	e_errorcodes
+enum	e_ht_errorcodes
 {
 	E_ERR = -1,
 	E_OK,
