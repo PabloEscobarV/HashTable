@@ -1,3 +1,6 @@
 [submodule "NearestPrime"]
 	path = NearestPrime
 	url = git@github.com:PabloEscobarV/NearestPrime.git
+[submodule "ErrorCodes"]
+	path = ErrorCodes
+	url = git@github.com:PabloEscobarV/ErrorCodes.git
