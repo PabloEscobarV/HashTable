@@ -6,13 +6,14 @@
 /*   By: Pablo Escobar <sataniv.rider@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 17:45:05 by Pablo Escob       #+#    #+#             */
-/*   Updated: 2024/09/22 13:39:21 by Pablo Escob      ###   ########.fr       */
+/*   Updated: 2024/09/22 15:22:54 by Pablo Escob      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include "../NearestPrime/libft/libft.h"
+#include "../ErrorCodes/errorcodes.h"
 #include <stdint.h>
 #include <stdlib.h>
 
@@ -35,14 +36,6 @@ enum	e_hashnodestate
 {
 	e_false,
 	e_true,
-};
-
-enum	e_errorcodes
-{
-	E_ERR = -1,
-	E_OK,
-	E_KO,
-	E_ERROR,
 };
 
 struct s_hashnode
