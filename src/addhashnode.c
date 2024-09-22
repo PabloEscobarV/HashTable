@@ -6,7 +6,7 @@
 /*   By: Pablo Escobar <sataniv.rider@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 18:35:44 by Pablo Escob       #+#    #+#             */
-/*   Updated: 2024/09/22 13:59:32 by Pablo Escob      ###   ########.fr       */
+/*   Updated: 2024/09/22 15:53:50 by Pablo Escob      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,9 @@ int	addnode(t_hashtable *hashtable, const char *key, const char *data)
 	{
 		hashtable->table[place]->key = (t_cchar *)ft_strdup(key);
 		hashtable->table[place]->data = (t_cchar *)ft_strdup(data);
-		hashtable->table[place]->state = e_true;
+		hashtable->table[place]->state = E_HTTRUE;
 	}
 	++hashtable->datacount;
 	++hashtable->nodecount;
-	return (E_OK);
+	return (E_HTOK);
 }

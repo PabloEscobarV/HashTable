@@ -6,14 +6,13 @@
 /*   By: Pablo Escobar <sataniv.rider@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 17:45:05 by Pablo Escob       #+#    #+#             */
-/*   Updated: 2024/09/22 15:10:22 by Pablo Escob      ###   ########.fr       */
+/*   Updated: 2024/09/22 15:53:05 by Pablo Escob      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include "../NearestPrime/libft/libft.h"
-#include "../ErrorCodes/errorcodes.h"
 #include <stdint.h>
 #include <stdlib.h>
 
@@ -32,10 +31,18 @@ typedef int (*	t_fremovenode)(t_hashtable *, t_cchar *key);
 typedef int (*	t_fresizehashtab)(t_hashtable *, int xsize);
 typedef int	(*	t_frehash)(t_hashtable *);
 
+enum	e_hterrorcodes
+{
+	E_HTERR = -1,
+	E_HTOK,
+	E_HTKO,
+	E_HTERROR,
+};
+
 enum	e_hashnodestate
 {
-	e_false,
-	e_true,
+	E_HTFALSE,
+	E_HTTRUE,
 };
 
 struct s_hashnode
