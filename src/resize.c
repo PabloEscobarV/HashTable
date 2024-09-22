@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: Pablo Escobar <sataniv.rider@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/31 20:13:06 by Pablo Escob       #+#    #+#             */
-/*   Updated: 2024/09/14 13:58:56 by Pablo Escob      ###   ########.fr       */
+/*   Created: 2024/09/22 16:04:33 by Pablo Escob       #+#    #+#             */
+/*   Updated: 2024/09/22 16:04:35 by Pablo Escob      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,10 @@ int	resizehashtable(t_hashtable *hashtable, int xsize)
 		++i;
 	}
 	freetable(tmp, tmpsize);
+<<<<<<< HEAD
 	printf("END RESIZE HASHTABLE\n");
 	return (E_OK);
+=======
+	return (E_HTOK);
+>>>>>>> e8ea2ab (update error codes enum)
 }

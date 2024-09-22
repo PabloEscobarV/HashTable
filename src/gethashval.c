@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: Pablo Escobar <sataniv.rider@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/18 18:42:43 by Pablo Escob       #+#    #+#             */
-/*   Updated: 2024/09/21 14:45:29 by Pablo Escob      ###   ########.fr       */
+/*   Created: 2024/09/22 16:04:24 by Pablo Escob       #+#    #+#             */
+/*   Updated: 2024/09/22 16:04:25 by Pablo Escob      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 int	gethash(t_fhash fhash, const char *key, int tabsize)
 {
 	if (!key || !(*key))
-		return (E_KO);
+		return (E_HTKO);
 	return (fhash(key, ft_strlen(key), HASHSEED) % tabsize);
 }
 

@@ -6,7 +6,7 @@
 /*   By: Pablo Escobar <sataniv.rider@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/31 19:25:21 by Pablo Escob       #+#    #+#             */
-/*   Updated: 2024/09/12 09:17:21 by Pablo Escob      ###   ########.fr       */
+/*   Updated: 2024/09/22 15:54:37 by Pablo Escob      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ t_hashnode	*crthashnodet(const char *key, const char *data)
 	if (!hashnode)
 	{
 		ft_perror(HT_MALLOCERROR);
-		exit(E_ERR);
+		exit(E_HTERR);
 	}
 	hashnode->key = (t_cchar *)ft_strdup(key);
 	hashnode->data = (t_cchar *)ft_strdup(data);
 	if (key)
-		hashnode->state = e_true;
+		hashnode->state = E_HTTRUE;
 	else
-		hashnode->state = e_false;
+		hashnode->state = E_HTFALSE;
 	return (hashnode);
 }
 
