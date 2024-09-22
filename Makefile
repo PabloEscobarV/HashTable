@@ -6,7 +6,7 @@
 #    By: Pablo Escobar <sataniv.rider@gmail.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/21 01:15:07 by Pablo Escob       #+#    #+#              #
-#    Updated: 2024/09/22 14:02:19 by Pablo Escob      ###   ########.fr        #
+#    Updated: 2024/09/22 19:37:19 by Pablo Escob      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,9 +58,9 @@ fclean: clean
 
 re: fclean lib
 
-# run: $(LIBFULLNAME)
-# 	$(CC) $(CFLAGSO) $(TESTFILE) -L. -l$(FULLNAME) -o $(TESTNAME)
-# 	./$(TESTNAME)
+run: $(LIBFULLNAME)
+	$(CC) $(CFLAGSO) $(TESTFILE) -L. -l$(FULLNAME) -o $(TESTNAME)
+	./$(TESTNAME)
 
 $(LIBNAME): $(OBJ)
 	$(MAKE) -C $(NEARPRMDIR) lib

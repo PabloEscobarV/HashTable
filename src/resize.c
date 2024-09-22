@@ -6,12 +6,13 @@
 /*   By: Pablo Escobar <sataniv.rider@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/31 20:13:06 by Pablo Escob       #+#    #+#             */
-/*   Updated: 2024/09/22 15:55:29 by Pablo Escob      ###   ########.fr       */
+/*   Updated: 2024/09/22 19:38:48 by Pablo Escob      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../NearestPrime/libft/libft.h"
 #include "../hdrs/hashtable.h"
+#include "../hdrs/enums.h"
 #include <stdlib.h>
 
 int	resizehashtable(t_hashtable *hashtable, int xsize)
