@@ -6,12 +6,13 @@
 /*   By: Pablo Escobar <sataniv.rider@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/31 20:08:04 by Pablo Escob       #+#    #+#             */
-/*   Updated: 2024/09/22 15:55:16 by Pablo Escob      ###   ########.fr       */
+/*   Updated: 2024/09/22 19:23:35 by Pablo Escob      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../NearestPrime/libft/libft.h"
 #include "../hdrs/hashtable.h"
+#include "../hdrs/enums.h"
 #include <stdlib.h>
 
 int	removenode(t_hashtable *hashtable, const char *key)

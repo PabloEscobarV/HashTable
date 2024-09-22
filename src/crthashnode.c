@@ -6,12 +6,13 @@
 /*   By: Pablo Escobar <sataniv.rider@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/31 19:25:21 by Pablo Escob       #+#    #+#             */
-/*   Updated: 2024/09/22 15:54:37 by Pablo Escob      ###   ########.fr       */
+/*   Updated: 2024/09/22 19:23:04 by Pablo Escob      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../NearestPrime/libft/libft.h"
 #include "../hdrs/hashtable.h"
+#include "../hdrs/enums.h"
 
 t_hashnode	*crthashnodet(const char *key, const char *data)
 {
