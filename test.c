@@ -6,7 +6,7 @@
 /*   By: Pablo Escobar <sataniv.rider@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 17:03:26 by Pablo Escob       #+#    #+#             */
-/*   Updated: 2024/09/22 19:37:10 by Pablo Escob      ###   ########.fr       */
+/*   Updated: 2024/09/23 22:15:43 by Pablo Escob      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,16 @@ int main()
 	data = crtstrs(count, "DATA: ");
 	// printm((t_cchar **)keys);
 	for (int i = 0; i < count; ++i)
+	{
 		hashtable->add(hashtable, (t_cchar *)keys[i], (t_cchar *)data[i]);
+		if (i)
+			hashtable->add(hashtable, (t_cchar *)keys[i - 1], (t_cchar *)data[i - 1]);
+	}
 	for (int i = 0; i < count; ++i)
 	{
 		size = hashtable->find(hashtable, keys[i]);
-		printf("NODE[%d]:\tKEY: %s\tDATA: %s\n",
-			i, hashtable->table[size]->key, hashtable->table[size]->data);
+		printf("NODE[%d]:\tKEY: %s\tDATA: %s\tHASHTABLE[%d]\n",
+			i, hashtable->table[size]->key, hashtable->table[size]->data, size);
 	}
 	for (int i = 0; i < count; ++i)
 		if (i && !(i % 2))
