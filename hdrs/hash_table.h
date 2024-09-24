@@ -1,20 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rehash.c                                           :+:      :+:    :+:   */
+/*   hash_table.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Pablo Escobar <sataniv.rider@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/31 21:17:52 by Pablo Escob       #+#    #+#             */
-/*   Updated: 2024/09/24 23:52:58 by Pablo Escob      ###   ########.fr       */
+/*   Created: 2024/09/24 22:58:36 by Pablo Escob       #+#    #+#             */
+/*   Updated: 2024/09/24 23:46:27 by Pablo Escob      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../NearestPrime/libft/libft.h"
-#include "../hdrs/hashtable.h"
-#include <stdlib.h>
+#pragma once
 
-int	rehash(t_hashtable *hashtable)
+#include "../hdrs/hashtable.h"
+
+struct s_hash_table
 {
-	return (resizehashtable(hashtable, 1));
-}
+	int				tabsize;
+	int				nodecount;
+	int				datacount;
+	t_hashnode		**table;
+	t_fhash			f_hash;
+};
+
+int 		get_tabsize(t_hash_table *_hash_table);
+int 		get_nodecount(t_hash_table *_hash_table);
+int 		get_datacount(t_hash_table *_hash_table);
+t_hashnode  **get_hashnode(t_hash_table *_hash_table);
+t_fhash 	get_f_hash(t_hash_table *_hash_table);
+void		set_f_hash(t_hash_table *_hash_table, t_fhash f_hash);

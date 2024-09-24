@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   gethashval.c                                       :+:      :+:    :+:   */
+/*   get_key_vravalue.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Pablo Escobar <sataniv.rider@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/18 18:42:43 by Pablo Escob       #+#    #+#             */
-/*   Updated: 2024/09/24 23:34:24 by Pablo Escob      ###   ########.fr       */
+/*   Created: 2024/09/24 22:32:47 by Pablo Escob       #+#    #+#             */
+/*   Updated: 2024/09/24 23:49:37 by Pablo Escob      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../hdrs/hashtable.h"
-#include "../NearestPrime/libft/libft.h"
-#include "../NearestPrime/hdrs/getnearprime.h"
-#include "../hdrs/enums.h"
-#include <stdint.h>
-#include <stdlib.h>
+#include "../hdrs/hash_table.h"
 
-int	gethash(t_fhash fhash, const char *key, int tabsize)
+const char	*get_data(t_hash_table *hashtable, const char *key)
 {
-	if (!key || !(*key))
-		return (E_HTKO);
-	return (fhash(key, ft_strlen(key), HASHSEED) % tabsize);
+	int	i;
+
+	i = findnode(hashtable, key);
+	if (i >= hashtable->tabsize)
+		return (NULL);
+	return (hashtable->table[i]->data);
 }
 
-int	getstephash(t_ulong hash, int tabsize)
+const char	*get_key(t_hash_table *hashtable, const char *key)
 {
-	t_ulong	prime;
+	int	i;
 
-	prime = getnearestprime(tabsize);
-	return (prime - (hash % prime));
+	i = findnode(hashtable, key);
+	if (i >= hashtable->tabsize)
+		return (NULL);
+	return (hashtable->table[i]->key);
 }

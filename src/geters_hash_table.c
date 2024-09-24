@@ -1,32 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   removehashnode.c                                   :+:      :+:    :+:   */
+/*   geters_hash_table.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Pablo Escobar <sataniv.rider@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/31 20:08:04 by Pablo Escob       #+#    #+#             */
-/*   Updated: 2024/09/24 23:34:44 by Pablo Escob      ###   ########.fr       */
+/*   Created: 2024/09/24 22:52:43 by Pablo Escob       #+#    #+#             */
+/*   Updated: 2024/09/24 23:46:12 by Pablo Escob      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../NearestPrime/libft/libft.h"
 #include "../hdrs/hashtable.h"
 #include "../hdrs/hash_table.h"
-#include "../hdrs/enums.h"
-#include <stdlib.h>
 
-int	removenode(t_hash_table *hashtable, const char *key)
+int get_tabsize(t_hash_table *_hash_table)
 {
-	int	i;
+    return (_hash_table->tabsize);
+}
 
-	i = findnode(hashtable, key);
-	if (!(hashtable->table[i]))
-		return (E_HTOK);
-	free((void *)hashtable->table[i]->key);
-	free((void *)hashtable->table[i]->data);
-	hashtable->table[i]->key = NULL;
-	hashtable->table[i]->data = NULL;
-	hashtable->table[i]->state = E_HTFALSE;
-	return (E_HTOK);
+int get_nodecount(t_hash_table *_hash_table)
+{
+    return (_hash_table->nodecount);
+}
+
+int get_datacount(t_hash_table *_hash_table)
+{
+    return (_hash_table->datacount);
+}
+
+t_hashnode  **get_hashnode(t_hash_table *_hash_table)
+{
+    return (_hash_table->table);
+}
+
+t_fhash get_f_hash(t_hash_table *_hash_table)
+{
+    return (_hash_table->f_hash);
 }
