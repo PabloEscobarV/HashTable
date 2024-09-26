@@ -6,7 +6,7 @@
 #    By: Pablo Escobar <sataniv.rider@gmail.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/21 01:15:07 by Pablo Escob       #+#    #+#              #
-#    Updated: 2024/09/22 19:37:19 by Pablo Escob      ###   ########.fr        #
+#    Updated: 2024/09/26 23:03:07 by Pablo Escob      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,5 +74,5 @@ $(LIBFULLNAME): $(OBJ)
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	@mkdir -p $(OBJDIR)
-	$(CC) -c $< -o $@
+	$(CC) -c -g $< -o $@
  

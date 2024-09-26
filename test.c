@@ -6,7 +6,7 @@
 /*   By: Pablo Escobar <sataniv.rider@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 17:03:26 by Pablo Escob       #+#    #+#             */
-/*   Updated: 2024/09/23 22:15:43 by Pablo Escob      ###   ########.fr       */
+/*   Updated: 2024/09/26 23:00:58 by Pablo Escob      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,20 +61,20 @@ int main()
 	}
 	for (int i = 0; i < count; ++i)
 	{
-		size = hashtable->find(hashtable, keys[i]);
 		printf("NODE[%d]:\tKEY: %s\tDATA: %s\tHASHTABLE[%d]\n",
-			i, hashtable->table[size]->key, hashtable->table[size]->data, size);
+			i, hashtable->get_key(hashtable, keys[i]),
+			hashtable->get_data(hashtable, keys[i]),
+			hashtable->get_place(hashtable, keys[i]));
 	}
 	for (int i = 0; i < count; ++i)
 		if (i && !(i % 2))
-			hashtable->remove(hashtable, keys[i]);
+			hashtable->remove_node(hashtable, keys[i]);
 	printf("---------------------\n");
 	for (int i = 0; i < count; ++i)
 	{
-		size = hashtable->find(hashtable, keys[i]);
-		if (size < hashtable->tabsize)
-			printf("NODE[%d]:\tKEY: %s\tDATA: %s\n",
-				i, hashtable->table[size]->key, hashtable->table[size]->data);
+		printf("NODE[%d]:\tKEY: %s\tDATA: %s\n",
+			i, hashtable->get_key(hashtable, keys[i]),
+			hashtable->get_data(hashtable, keys[i]));
 	}
 	ft_free_d((void **)keys);
 	ft_free_d((void **)data);

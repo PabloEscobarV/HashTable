@@ -6,29 +6,34 @@
 /*   By: Pablo Escobar <sataniv.rider@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 22:32:47 by Pablo Escob       #+#    #+#             */
-/*   Updated: 2024/09/24 23:49:37 by Pablo Escob      ###   ########.fr       */
+/*   Updated: 2024/09/26 22:39:01 by Pablo Escob      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../hdrs/hashtable.h"
 #include "../hdrs/hash_table.h"
 
-const char	*get_data(t_hash_table *hashtable, const char *key)
+const char	*get_data(t_hashtable *hashtable, const char *key)
 {
 	int	i;
 
 	i = findnode(hashtable, key);
-	if (i >= hashtable->tabsize)
+	if (i >= hashtable->table->tabsize)
 		return (NULL);
-	return (hashtable->table[i]->data);
+	return (hashtable->table->table[i]->data);
 }
 
-const char	*get_key(t_hash_table *hashtable, const char *key)
+const char	*get_key(t_hashtable *hashtable, const char *key)
 {
 	int	i;
 
 	i = findnode(hashtable, key);
-	if (i >= hashtable->tabsize)
+	if (i >= hashtable->table->tabsize)
 		return (NULL);
-	return (hashtable->table[i]->key);
+	return (hashtable->table->table[i]->key);
+}
+
+int		get_place(t_hashtable *hashtable, const char *key)
+{
+	return (findnode(hashtable, key));
 }

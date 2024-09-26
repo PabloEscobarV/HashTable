@@ -6,7 +6,7 @@
 /*   By: Pablo Escobar <sataniv.rider@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 18:26:02 by Pablo Escob       #+#    #+#             */
-/*   Updated: 2024/09/24 23:48:41 by Pablo Escob      ###   ########.fr       */
+/*   Updated: 2024/09/26 23:07:57 by Pablo Escob      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ t_hashtable	*crthashtable(int size)
 	hashtable->table = crt_hash_table(size);
 	hashtable->add = addnode;
 	hashtable->remove_node = removenode;
-	hashtable->rehash = rehash;
-	hashtable->resize = resizehashtable;
 	hashtable->get_data = get_data;
 	hashtable->get_key = get_key;
 	hashtable->get_tabsize = get_tabsize;
-	hashtable->set_f_hash(hashtable->table, murmur3_32);
+	hashtable->set_f_hash = set_f_hash;
+	hashtable->table->f_hash = murmur3_32;
+	hashtable->get_place = get_place;
 	return (hashtable);
 }
 
@@ -50,32 +50,16 @@ t_hashtable	*crtnewhashtable(t_hashtable *table, int size)
 	newtable->table = crt_hash_table(size);
 	newtable->add = table->add;
 	newtable->remove_node = table->remove_node;
-	newtable->rehash = table->rehash;
-	newtable->resize = table->resize;
 	newtable->get_data = table->get_data;
 	newtable->get_key = table->get_key;
 	newtable->get_tabsize = table->get_tabsize;
 	newtable->set_f_hash(newtable->table, get_f_hash(table->table));
+	newtable->get_place = table->get_place;
 	return (newtable);
-}
-
-void	freetable(t_hashnode **table, int size)
-{
-	while (size)
-	{
-		--size;
-		if (table[size])
-		{
-			free((void *)(table[size]->data));
-			free((void *)(table[size]->key));
-			free(table[size]);
-		}
-	}
-	free(table);
 }
 
 void	freehashtablet(t_hashtable *hashtable)
 {
-	freetable(get_hashnode(hashtable->table), get_tabsize(hashtable->table));
+	freehash_table(hashtable->table);
 	free(hashtable);
 }

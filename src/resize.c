@@ -6,7 +6,7 @@
 /*   By: Pablo Escobar <sataniv.rider@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/31 20:13:06 by Pablo Escob       #+#    #+#             */
-/*   Updated: 2024/09/24 23:53:52 by Pablo Escob      ###   ########.fr       */
+/*   Updated: 2024/09/26 23:20:19 by Pablo Escob      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,18 @@
 
 int	resizehashtable(t_hashtable *hashtable, int xsize)
 {
-	int			i;
-	int			tmpsize;
-	t_hashnode	**tmp;
+	int				i;
+	t_hash_table	*tmp;
 
-	tmp = hashtable->table->table;
-	tmpsize = hashtable->table->tabsize;
-	hashtable->table->tabsize *= xsize;
-	hashtable->table = crt_hash_table(hashtable->table->tabsize);
+	tmp = hashtable->table;
+	hashtable->table = crt_hash_table(hashtable->table->tabsize * xsize);
 	i = 0;
-	while (i < tmpsize)
+	while (i < tmp->tabsize)
 	{
-		if (tmp[i] && tmp[i]->state)
-			addnode(hashtable->table, tmp[i]->key, tmp[i]->data);
+		if (tmp->table[i] && tmp->table[i]->state)
+			addnode(hashtable, tmp->table[i]->key, tmp->table[i]->data);
 		++i;
 	}
-	freetable(tmp, tmpsize);
+	freehash_table(tmp);
 	return (E_HTOK);
 }
