@@ -6,7 +6,7 @@
 /*   By: Pablo Escobar <sataniv.rider@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 17:03:26 by Pablo Escob       #+#    #+#             */
-/*   Updated: 2024/09/26 23:00:58 by Pablo Escob      ###   ########.fr       */
+/*   Updated: 2024/09/28 19:56:59 by Pablo Escob      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,27 +44,31 @@ int main()
 	int			size;
 	int			count;
 	char		**keys;
-	char		**data;
+	char		**datas;
+	t_cchar		*key;
+	t_cchar		*data;
 	t_hashtable	*hashtable;
 
 	size = 1;
 	count = 100;
 	hashtable = crthashtable(size);
 	keys = crtstrs(count, "KEY FOR HASHTABL: ");
-	data = crtstrs(count, "DATA: ");
+	datas = crtstrs(count, "DATA: ");
 	// printm((t_cchar **)keys);
 	for (int i = 0; i < count; ++i)
 	{
-		hashtable->add(hashtable, (t_cchar *)keys[i], (t_cchar *)data[i]);
+		hashtable->add(hashtable, (t_cchar *)keys[i], (t_cchar *)datas[i]);
 		if (i)
-			hashtable->add(hashtable, (t_cchar *)keys[i - 1], (t_cchar *)data[i - 1]);
+			hashtable->add(hashtable, (t_cchar *)keys[i - 1], (t_cchar *)datas[i - 1]);
 	}
 	for (int i = 0; i < count; ++i)
 	{
+		key = hashtable->get_key(hashtable, keys[i]);
+		data = hashtable->get_data(hashtable, keys[i]);
 		printf("NODE[%d]:\tKEY: %s\tDATA: %s\tHASHTABLE[%d]\n",
-			i, hashtable->get_key(hashtable, keys[i]),
-			hashtable->get_data(hashtable, keys[i]),
-			hashtable->get_place(hashtable, keys[i]));
+			i, key, data, hashtable->get_place(hashtable, keys[i]));
+		free((void *)key);
+		free((void *)data);
 	}
 	for (int i = 0; i < count; ++i)
 		if (i && !(i % 2))
@@ -72,12 +76,14 @@ int main()
 	printf("---------------------\n");
 	for (int i = 0; i < count; ++i)
 	{
-		printf("NODE[%d]:\tKEY: %s\tDATA: %s\n",
-			i, hashtable->get_key(hashtable, keys[i]),
-			hashtable->get_data(hashtable, keys[i]));
+		key = hashtable->get_key(hashtable, keys[i]);
+		data = hashtable->get_data(hashtable, keys[i]);
+		printf("NODE[%d]:\tKEY: %s\tDATA: %s\n", i, key, data);
+		free((void *)key);
+		free((void *)data);
 	}
 	ft_free_d((void **)keys);
-	ft_free_d((void **)data);
+	ft_free_d((void **)datas);
 	freehashtablet(hashtable);
 	return (0);
 }

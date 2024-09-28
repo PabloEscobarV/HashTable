@@ -6,7 +6,7 @@
 /*   By: Pablo Escobar <sataniv.rider@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 22:32:47 by Pablo Escob       #+#    #+#             */
-/*   Updated: 2024/09/28 19:20:01 by Pablo Escob      ###   ########.fr       */
+/*   Updated: 2024/09/28 19:52:22 by Pablo Escob      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ const char	*get_data(t_hashtable *hashtable, const char *key)
 	i = findnode(hashtable, key);
 	if (i >= hashtable->table->tabsize)
 		return (NULL);
-	return (hashtable->table->table[i]->data);
+	return (ft_strdup(hashtable->table->table[i]->data));
 }
 
 const char	*get_key(t_hashtable *hashtable, const char *key)
@@ -30,7 +30,7 @@ const char	*get_key(t_hashtable *hashtable, const char *key)
 	i = findnode(hashtable, key);
 	if (i >= hashtable->table->tabsize)
 		return (NULL);
-	return (hashtable->table->table[i]->key);
+	return (ft_strdup(hashtable->table->table[i]->key));
 }
 
 int	get_place(t_hashtable *hashtable, const char *key)
