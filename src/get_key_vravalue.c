@@ -6,11 +6,11 @@
 /*   By: Pablo Escobar <sataniv.rider@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 22:32:47 by Pablo Escob       #+#    #+#             */
-/*   Updated: 2024/09/26 22:39:01 by Pablo Escob      ###   ########.fr       */
+/*   Updated: 2024/09/28 19:20:01 by Pablo Escob      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../hdrs/hashtable.h"
+#include "../hdrs/hashtablesrvc.h"
 #include "../hdrs/hash_table.h"
 
 const char	*get_data(t_hashtable *hashtable, const char *key)
@@ -33,7 +33,7 @@ const char	*get_key(t_hashtable *hashtable, const char *key)
 	return (hashtable->table->table[i]->key);
 }
 
-int		get_place(t_hashtable *hashtable, const char *key)
+int	get_place(t_hashtable *hashtable, const char *key)
 {
 	return (findnode(hashtable, key));
 }

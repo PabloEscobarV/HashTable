@@ -6,12 +6,13 @@
 /*   By: Pablo Escobar <sataniv.rider@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 18:35:44 by Pablo Escob       #+#    #+#             */
-/*   Updated: 2024/09/26 22:37:42 by Pablo Escob      ###   ########.fr       */
+/*   Updated: 2024/09/28 19:22:58 by Pablo Escob      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../NearestPrime/libft/libft.h"
 #include "../hdrs/hashtable.h"
+#include "../hdrs/hashtablesrvc.h"
 #include "../hdrs/hash_table.h"
 #include "../hdrs/enums.h"
 #include <stdlib.h>
@@ -21,9 +22,9 @@ void	checkhashtable(t_hashtable *hashtable)
 {
 	if (hashtable->table->tabsize <= hashtable->table->nodecount + 1)
 		resizehashtable(hashtable, C_RESIZE);
-	if (hashtable->table->datacount
-		&& hashtable->table->nodecount >= hashtable->table->datacount * C_RESIZE)
-			rehash(hashtable);
+	if (hashtable->table->datacount && hashtable->table->nodecount
+		>= hashtable->table->datacount * C_RESIZE)
+		rehash(hashtable);
 }
 
 int	findplace(const char *key, t_hashtable *hashtable, int hash, int step)
@@ -33,7 +34,8 @@ int	findplace(const char *key, t_hashtable *hashtable, int hash, int step)
 
 	i = hash;
 	atmp = hashtable->table->tabsize * 2;
-	while (hashtable->table->table[i] && hashtable->table->table[i]->state && atmp)
+	while (hashtable->table->table[i] && hashtable->table->table[i]->state
+		&& atmp)
 	{
 		if (!ft_strcmp(key, hashtable->table->table[i]->key))
 			return (i);
@@ -46,7 +48,7 @@ int	findplace(const char *key, t_hashtable *hashtable, int hash, int step)
 	return (findplace(key, hashtable, hash, step));
 }
 
-void	writedata(int place, t_cchar *key, t_cchar *data, t_hashtable *hashtable)
+void	putdata(int place, t_cchar *key, t_cchar *data, t_hashtable *hashtable)
 {
 	if (!hashtable->table->table[place])
 		hashtable->table->table[place] = crthashnodet(key, data);
@@ -75,6 +77,6 @@ int	addnode(t_hashtable *hashtable, const char *key, const char *data)
 	hash = gethash(murmur3_32, key, hashtable->table->tabsize);
 	step = getstephash(hash, hashtable->table->tabsize);
 	place = findplace(key, hashtable, hash, step);
-	writedata(place, key, data, hashtable);
+	putdata(place, key, data, hashtable);
 	return (E_HTOK);
 }

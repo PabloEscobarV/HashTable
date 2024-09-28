@@ -6,13 +6,13 @@
 /*   By: Pablo Escobar <sataniv.rider@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 22:58:36 by Pablo Escob       #+#    #+#             */
-/*   Updated: 2024/09/26 23:07:20 by Pablo Escob      ###   ########.fr       */
+/*   Updated: 2024/09/28 19:34:55 by Pablo Escob      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "../hdrs/hashtable.h"
+#include "../hdrs/hashtablesrvc.h"
 
 struct s_hash_table
 {
@@ -23,9 +23,9 @@ struct s_hash_table
 	t_fhash			f_hash;
 };
 
-int 		get_tabsize(t_hash_table *_hash_table);
-int 		get_nodecount(t_hash_table *_hash_table);
-int 		get_datacount(t_hash_table *_hash_table);
-t_hashnode  **get_hashnode(t_hash_table *_hash_table);
-t_fhash 	get_f_hash(t_hash_table *_hash_table);
+int			get_tabsize(t_hash_table *_hash_table);
+int			get_nodecount(t_hash_table *_hash_table);
+int			get_datacount(t_hash_table *_hash_table);
+t_hashnode	**get_hashnode(t_hash_table *_hash_table);
+t_fhash		get_f_hash(t_hash_table *_hash_table);
 void		set_f_hash(t_hash_table *_hash_table, t_fhash f_hash);

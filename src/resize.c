@@ -6,12 +6,12 @@
 /*   By: Pablo Escobar <sataniv.rider@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/31 20:13:06 by Pablo Escob       #+#    #+#             */
-/*   Updated: 2024/09/26 23:20:19 by Pablo Escob      ###   ########.fr       */
+/*   Updated: 2024/09/28 19:20:31 by Pablo Escob      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../NearestPrime/libft/libft.h"
-#include "../hdrs/hashtable.h"
+#include "../hdrs/hashtablesrvc.h"
 #include "../hdrs/hash_table.h"
 #include "../hdrs/enums.h"
 #include <stdlib.h>
