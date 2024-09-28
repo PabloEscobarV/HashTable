@@ -6,7 +6,7 @@
 /*   By: Pablo Escobar <sataniv.rider@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 17:03:26 by Pablo Escob       #+#    #+#             */
-/*   Updated: 2024/09/28 19:56:59 by Pablo Escob      ###   ########.fr       */
+/*   Updated: 2024/09/28 20:54:35 by Pablo Escob      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,18 @@ int main()
 		if (i && !(i % 2))
 			hashtable->remove_node(hashtable, keys[i]);
 	printf("---------------------\n");
+	for (int i = 0; i < count; ++i)
+	{
+		key = hashtable->get_key(hashtable, keys[i]);
+		data = hashtable->get_data(hashtable, keys[i]);
+		printf("NODE[%d]:\tKEY: %s\tDATA: %s\n", i, key, data);
+		free((void *)key);
+		free((void *)data);
+	}
+	ft_free_d((void **)keys);
+	ft_free_d((void **)datas);
+	keys = crtstrs(count, "KEY FOR HASHTABLA TEST: ");
+	datas = crtstrs(count, "DATA TEST: ");
 	for (int i = 0; i < count; ++i)
 	{
 		key = hashtable->get_key(hashtable, keys[i]);
