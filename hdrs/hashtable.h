@@ -6,7 +6,7 @@
 /*   By: Pablo Escobar <sataniv.rider@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 17:45:05 by Pablo Escob       #+#    #+#             */
-/*   Updated: 2024/09/28 19:34:30 by Pablo Escob      ###   ########.fr       */
+/*   Updated: 2024/09/28 19:39:26 by Pablo Escob      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 typedef struct s_hash_table	t_hash_table;
 typedef struct s_hashtable	t_hashtable;
-typedef uint32_t (*			t_fhash)(t_cchar *key, int tbsize, uint32_t seed);
+typedef uint32_t			(*t_fhash)(t_cchar *key, int tbsize, uint32_t seed);
 
 struct	s_hashtable
 {
