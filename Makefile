@@ -6,14 +6,12 @@
 #    By: Pablo Escobar <sataniv.rider@gmail.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/21 01:15:07 by Pablo Escob       #+#    #+#              #
-#    Updated: 2024/09/26 23:03:07 by Pablo Escob      ###   ########.fr        #
+#    Updated: 2024/09/28 21:51:18 by Pablo Escob      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = hashtable
-FULLNAME = hashtablefull
 LIBNAME = lib$(NAME).a
-LIBFULLNAME = lib$(FULLNAME).a
 TESTNAME = test
 NEARPRMNAMENAME = getnearprime
 LIBFTNAME = ft
@@ -54,21 +52,16 @@ clean:
 
 fclean: clean
 	$(MAKE) -C $(NEARPRMDIR) fclean
-	rm -f $(LIBNAME) $(LIBFULLNAME) $(TESTNAME)
+	rm -f $(LIBNAME) $(TESTNAME)
 
 re: fclean lib
 
-run: $(LIBFULLNAME)
-	$(CC) $(CFLAGSO) $(TESTFILE) -L. -l$(FULLNAME) -o $(TESTNAME)
+run: $(LIBNAME)
+	$(CC) $(CFLAGSO) $(TESTFILE) -L. -l$(NAME) -o $(TESTNAME)
 	./$(TESTNAME)
 
 $(LIBNAME): $(OBJ)
-	$(MAKE) -C $(NEARPRMDIR) lib
-	ar -rc $@ $(OBJ)
-	ranlib $@
-
-$(LIBFULLNAME): $(OBJ)
-	$(MAKE) -C $(NEARPRMDIR) lib
+	$(MAKE) -C $(NEARPRMDIR)
 	ar -rc $@ $(OBJ) $(NEARPRM_OBJ) $(LIBFT_OBJ) $(FTSPOW_OBJ)
 	ranlib $@
 
