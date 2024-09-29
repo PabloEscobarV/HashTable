@@ -6,7 +6,7 @@
 /*   By: Pablo Escobar <sataniv.rider@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 18:35:44 by Pablo Escob       #+#    #+#             */
-/*   Updated: 2024/09/28 19:22:58 by Pablo Escob      ###   ########.fr       */
+/*   Updated: 2024/09/29 15:15:45 by Pablo Escob      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "../hdrs/hashtable.h"
 #include "../hdrs/hashtablesrvc.h"
 #include "../hdrs/hash_table.h"
-#include "../hdrs/enums.h"
+#include "../E_Codes/e_codes.h"
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -61,7 +61,7 @@ void	putdata(int place, t_cchar *key, t_cchar *data, t_hashtable *hashtable)
 		}
 		free((void *)hashtable->table->table[place]->data);
 		hashtable->table->table[place]->data = (t_cchar *)ft_strdup(data);
-		hashtable->table->table[place]->state = E_HTTRUE;
+		hashtable->table->table[place]->state = E_TRUE;
 	}
 	++hashtable->table->datacount;
 	++hashtable->table->nodecount;
@@ -78,5 +78,5 @@ int	addnode(t_hashtable *hashtable, const char *key, const char *data)
 	step = getstephash(hash, hashtable->table->tabsize);
 	place = findplace(key, hashtable, hash, step);
 	putdata(place, key, data, hashtable);
-	return (E_HTOK);
+	return (E_OK);
 }
