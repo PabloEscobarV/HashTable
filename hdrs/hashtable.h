@@ -6,15 +6,16 @@
 /*   By: Pablo Escobar <sataniv.rider@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 17:45:05 by Pablo Escob       #+#    #+#             */
-/*   Updated: 2024/09/28 19:39:26 by Pablo Escob      ###   ########.fr       */
+/*   Updated: 2024/09/29 15:51:13 by Pablo Escob      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef HASHTABLE_H
+# define HASHTABLE_H
 
-#include "../NearestPrime/libft/libft.h"
-#include <stdint.h>
-#include <stdlib.h>
+# include "../NearestPrime/libft/libft.h"
+# include <stdint.h>
+# include <stdlib.h>
 
 typedef struct s_hash_table	t_hash_table;
 typedef struct s_hashtable	t_hashtable;
@@ -36,3 +37,5 @@ struct	s_hashtable
 t_hashtable		*crthashtable(int size);
 t_hashtable		*crtnewhashtable(t_hashtable *table, int xsize);
 void			freehashtablet(t_hashtable *hashtable);
+
+#endif
