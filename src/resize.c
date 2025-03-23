@@ -6,14 +6,13 @@
 /*   By: Pablo Escobar <sataniv.rider@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/31 20:13:06 by Pablo Escob       #+#    #+#             */
-/*   Updated: 2024/09/29 15:16:37 by Pablo Escob      ###   ########.fr       */
+/*   Updated: 2025/03/23 20:31:11 by Pablo Escob      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../NearestPrime/libft/libft.h"
 #include "../hdrs/hashtablesrvc.h"
 #include "../hdrs/hash_table.h"
-#include "../E_Codes/e_codes.h"
 #include <stdlib.h>
 
 int	resizehashtable(t_hashtable *hashtable, int xsize)
@@ -31,5 +30,5 @@ int	resizehashtable(t_hashtable *hashtable, int xsize)
 		++i;
 	}
 	freehash_table(tmp);
-	return (E_OK);
+	return (E_FALSE);
 }

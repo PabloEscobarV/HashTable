@@ -6,7 +6,7 @@
 /*   By: Pablo Escobar <sataniv.rider@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 18:35:44 by Pablo Escob       #+#    #+#             */
-/*   Updated: 2024/09/29 15:15:45 by Pablo Escob      ###   ########.fr       */
+/*   Updated: 2025/03/23 20:31:11 by Pablo Escob      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include "../hdrs/hashtable.h"
 #include "../hdrs/hashtablesrvc.h"
 #include "../hdrs/hash_table.h"
-#include "../E_Codes/e_codes.h"
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -78,5 +77,5 @@ int	addnode(t_hashtable *hashtable, const char *key, const char *data)
 	step = getstephash(hash, hashtable->table->tabsize);
 	place = findplace(key, hashtable, hash, step);
 	putdata(place, key, data, hashtable);
-	return (E_OK);
+	return (E_FALSE);
 }

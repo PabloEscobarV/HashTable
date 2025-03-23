@@ -6,12 +6,11 @@
 /*   By: Pablo Escobar <sataniv.rider@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/31 19:25:21 by Pablo Escob       #+#    #+#             */
-/*   Updated: 2024/09/29 15:16:04 by Pablo Escob      ###   ########.fr       */
+/*   Updated: 2025/03/23 20:29:18 by Pablo Escob      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../NearestPrime/libft/libft.h"
-#include "../E_Codes/e_codes.h"
 #include "../hdrs/hashtablesrvc.h"
 
 t_hashnode	*crthashnodet(const char *key, const char *data)
